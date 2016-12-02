@@ -32,13 +32,13 @@
   <img src="matches.JPG">
   <img src="matches1.JPG">
 <p>
-  I used the sift feature detector for feature detection. Then I used the FlannBased matcher. I only looked for at least 11 features then I stopped looking for more key features. Threshholding with ratio between the different features. This was very similar to hwk3.
+  I used the sift feature detector for feature detection. Then I used the FlannBased matcher. I only looked for at least 11 features then I stopped looking for more key features.For draw matches I used some code from online since cv2.drawMatches is not part of the version that I installed. Threshholding with ratio between the different features. This was very similar to hwk3.
 </p>
 
 <h3>
 <a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Compute a transformation between an image pair (10p): OpenCV provides function for computing an affine 2D transform or a homography between image pairs. Please note that you can choose to use RANSAC option with your transformation computation method. You should provide both affine transform and the homography computed using different options for at least one image pair</h3>
 
-<p> I defined two functions one that calculates the Homography matrix using cv2.findHomography. The function takes in the point pairs of the key features.I used Ransac method with a threshold of 5. Then it saves a 3x3 Matrix  saved to a file.Then there is another function defined that calculates the Matrix for Affine Transformation which produced a 2x3 matrix.</p>
+<p> I defined two functions one that calculates the Homography matrix using cv2.findHomography. The function takes in the point pairs of the key features.I used Ransac method with a threshold of 5.Ransac goes through all the features that are found and creates what it thinks is the best homography matrix. Then it saves a 3x3 Matrix  saved to a file.Then there is another function defined that calculates the Matrix for Affine Transformation which produced a 2x3 matrix.</p>
 
 <h3>
 <a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Use the computed homography to warp the second image into the first and blend them appropriately. Display the aligned images in a single frame. Note that this image will be bigger than the original images.</h3>
